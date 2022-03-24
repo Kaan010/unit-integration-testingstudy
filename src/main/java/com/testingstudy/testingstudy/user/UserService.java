@@ -19,7 +19,7 @@ public class UserService {
     }
 
     public List<User> getAllUsers() {
-        return new ArrayList<>(userRepository.findAll());
+        return userRepository.findAll();
     }
 
     public void createUser(User userDto) {
@@ -33,7 +33,7 @@ public class UserService {
     }
 
     public void deleteUser(Long userId) {
-        if(!userRepository.existsById(userId)) {
+        if (!userRepository.existsById(userId)) {
             throw new UserNotFoundException(
                     "Student with id " + userId + " does not exists");
         }
