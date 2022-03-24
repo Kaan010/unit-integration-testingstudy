@@ -1,15 +1,14 @@
-package com.testingstudy.testingstudy
+package com.testingstudy.testingstudy.user
 
-import org.hibernate.annotations.GenericGenerator
 import javax.persistence.*
-import javax.validation.constraints.NotNull
+
+@Entity
 
 class User @JvmOverloads constructor(
         @Id
-        @Column(name = "hiker_id")
-        @GeneratedValue(generator = "UUID")
-        @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-        val id: String? = "",
+        @SequenceGenerator(name = "user_sequence", sequenceName = "user_sequence", allocationSize = 1)
+        @GeneratedValue(generator = "user_sequence", strategy = GenerationType.SEQUENCE)
+        val id: Long? = 0,
         val firstName: String,
         val email: String,
         @Enumerated(EnumType.STRING)

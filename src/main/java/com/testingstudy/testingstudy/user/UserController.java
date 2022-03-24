@@ -1,4 +1,4 @@
-package com.testingstudy.testingstudy;
+package com.testingstudy.testingstudy.user;
 
 
 import org.springframework.web.bind.annotation.*;
@@ -25,10 +25,9 @@ public class UserController {
                 userService.createUser(userRequest);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{userId}")
     public void deleteUser(@PathVariable("userId") Long userId){
         userService.deleteUser(userId);
     }
-
 
 }
